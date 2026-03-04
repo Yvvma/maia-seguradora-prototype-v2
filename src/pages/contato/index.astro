@@ -13,20 +13,45 @@ import FormContainer from '../../components/Contato/FormContact';
       <h1 class="font-[NotoSansRegular]">Contato</h1>
     </div>
 
-    {/* Hero Section */}
-    <div class="relative w-full h-full flex flex-col p-4 gap-2 bg-black">
-      <div class="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center text-white gap-2">
-        <h1 class="text-md md:text-5xl tracking-tightest font-[NotoSansRegular]">Fale Conosco</h1>
-        <img src="/photos/seguros-page/should-couples-buy-separate-insurance-policies.jpg" alt="Contato" class="w-full h-full object-cover aspect-video rounded-xl" />
-        <h1 class="text-lg md:text-5xl tracking-tight font-[NotoSansBold]">Estamos prontos para ajudar você</h1>
-        <p class="text-sm tracking-tight font-[NotoSansLight]">Entre em contato e descubra as melhores soluções para proteger seu patrimônio</p>
-        <div class="text-lg md:text-5xl tracking-tight font-[NotoSansBold] bg-white text-center rounded-sm py-1 max-w-max px-2">
-          <a href="#formulario" class="text-[#0A1F7A] tracking-tight text-sm">
-            Enviar Mensagem
-          </a>
-        </div>
+  {/* Hero Section */}
+<div class="relative w-full bg-black">
+
+  {/* Desktop Hero */}
+  <div class="hidden sm:flex relative z-10 max-w-6xl mx-auto flex-row items-center gap-8 p-4 md:p-12 text-white">
+    
+    {/* Hero Text */}
+    <div class="flex-1 flex flex-col gap-2 md:gap-4 text-left">
+      <h1 class="text-3xl md:text-5xl font-[NotoSansRegular] tracking-tight">Fale Conosco</h1>
+      <p class="text-sm md:text-lg font-[NotoSansLight]">Entre em contato e descubra as melhores soluções para proteger seu patrimônio</p>
+      <h2 class="text-lg md:text-3xl font-[NotoSansBold]">Estamos prontos para ajudar você</h2>
+      <a href="#formulario" class="max-w-max inline-block mt-4 bg-white text-[#0A1F7A] font-[NotoSansBold] py-2 px-6 rounded-sm text-center hover:bg-gray-100 transition">
+        Enviar Mensagem
+      </a>
+    </div>
+
+    {/* Hero Image */}
+    <div class="flex-1 w-full h-64 md:h-96 rounded-xl overflow-hidden">
+      <img src="/photos/seguros-page/should-couples-buy-separate-insurance-policies.jpg" alt="Fale Conosco" class="w-full h-full object-cover"/>
+    </div>
+
+  </div>
+
+  {/* Mobile Hero */}
+  <div class="relative w-full h-full flex flex-col p-4 gap-2 bg-black sm:hidden">
+    <div class="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center text-white gap-2">
+      <h1 class="text-md md:text-5xl tracking-tightest font-[NotoSansRegular]">Fale Conosco</h1>
+      <img src="/photos/seguros-page/should-couples-buy-separate-insurance-policies.jpg" alt="Contato" class="w-full h-full object-cover aspect-video rounded-xl" />
+      <h1 class="text-lg md:text-5xl tracking-tight font-[NotoSansBold]">Estamos prontos para ajudar você</h1>
+      <p class="text-sm tracking-tight font-[NotoSansLight]">Entre em contato e descubra as melhores soluções para proteger seu patrimônio</p>
+      <div class="text-lg md:text-5xl tracking-tight font-[NotoSansBold] bg-white text-center rounded-sm py-1 max-w-max px-2">
+        <a href="#formulario" class="text-[#0A1F7A] tracking-tight text-sm">
+          Enviar Mensagem
+        </a>
       </div>
     </div>
+  </div>
+
+</div>
 
     {/* Content Section */}
     <div class="max-w-6xl mx-auto px-6 py-8">
