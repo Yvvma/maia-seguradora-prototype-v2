@@ -203,13 +203,7 @@ const HeaderComponent = () => {
                         <p className="text-sm text-gray-400 leading-relaxed">
                           Oferecemos seguros, previdência e consórcios pensados para cada fase da sua vida — e soluções robustas para proteger empresas de todos os portes e segmentos.
                         </p>
-                        <a
-                          href="/servicos"
-                          className="inline-block mt-6 text-xs uppercase tracking-widest border border-[#e84620] text-[#e84620] px-4 py-2 hover:bg-[#e84620] hover:text-white transition"
-                          onClick={() => setMegaMenuOpen(false)}
-                        >
-                          Ver todos os serviços →
-                        </a>
+                       
                       </div>
 
                       {/* Divider */}
