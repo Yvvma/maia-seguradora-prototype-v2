@@ -55,7 +55,7 @@ const CardsContainer: React.FC = () => {
           <h2 className="text-lg text-start font-[MMC] text-[#e84620]/80">
             Serviços para você e sua família
           </h2>
-          <div ref={scrollRef} className="flex flex-row gap-6 overflow-x-auto no-scrollbar py-4 overflow-y-hidden">
+          <div ref={scrollRef} className="flex flex-row gap-6 overflow-x-auto no-scrollbar py-4 overflow-y-hidden sm:translate-x-12">
             {SERVICE_CARDS.map((card, index) => (
               <motion.div
                 key={card.id}
@@ -67,7 +67,7 @@ const CardsContainer: React.FC = () => {
               >
                 <div className="flex flex-col p-6 sm:p-8">
                   <div className="flex flex-row justify-between items-start w-full">
-                    <h3 className="text-lg font-[MMC] font-bold tracking-tight text-white mb-2">{card.title}</h3>
+                    <h3 className="text-md font-[MMC] font-bold tracking-tight text-white mb-2">{card.title}</h3>
                     {card.icon && <div className="text-white flex justify-start items-center mb-4">{card.icon}</div>}
                   </div>
                   {card.imgSrc && <img src={card.imgSrc} alt={card.title} className="w-full object-contain drop-shadow-lg absolute bottom-0" />}

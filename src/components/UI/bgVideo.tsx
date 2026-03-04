@@ -74,8 +74,8 @@ export default function BackgroundVideo({
       />
 
       {/* CONTEÚDO */}
-      <div className="relative z-10 h-full flex flex-row justify-end px-4 py-4 sm:px-48 sm:py-16 ">
-        <div className="max-w-6xl w-full justify-start h-full">
+      <div className="relative z-10 h-full flex flex-row justify-between px-4 py-4 sm:py-16 w-full items-end sm:px-32">
+        <div className="max-w-6xl w-full justify-start h-full items-start">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ export default function BackgroundVideo({
         
        <button
                 onClick={togglePlay}
-                className="bg-white/60 max-h-max  hover:bg-white text-black p-2 rounded-full transition flex items-center justify-center"
+                className="bg-white/60 max-h-max  hover:bg-white text-black p-2 my-16 rounded-full transition flex items-center justify-center"
               >
                 {isPlaying ? <Pause size={20}  /> : <Play size={20} />}
               </button>
