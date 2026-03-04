@@ -22,7 +22,7 @@ const SERVICE_CARDS: ServiceCard[] = [
 
 const BUSINESS_SOLUTIONS = [
   { id: "seguro-empresarial", title: "Seguro Empresarial", description: "Proteção completa para seu negócio com coberturas personalizadas.", imgSrc: "/photos/para-empresas/03.png", icon: <Building2 size={24} />, bgColor: "bg-slate-600" },
-  { id: "seguro-de-caminhoes", title: "Seguro de Caminhões", description: "Segurança para caminhões e veículos comerciais da sua empresa.", imgSrc: "/photos/para-empresas/01.jpg", icon: <Truck size={24} />, bgColor: "bg-gray-600" },
+  { id: "seguro-caminhoes", title: "Seguro de Caminhões", description: "Segurança para caminhões e veículos comerciais da sua empresa.", imgSrc: "/photos/para-empresas/01.jpg", icon: <Truck size={24} />, bgColor: "bg-gray-600" },
   { id: "seguro-cargas", title: "Seguro de Cargas", description: "Proteção para suas mercadorias em trânsito nacional e internacional.", imgSrc: "/photos/para-empresas/02.jpg", icon: <Shield size={24} />, bgColor: "bg-zinc-600" }
 ];
 
