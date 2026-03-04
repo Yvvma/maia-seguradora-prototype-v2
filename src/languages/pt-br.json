@@ -1,0 +1,146 @@
+{
+  "menu": {
+    "title":"Menu",
+    "home":"Home",
+    "servicos":"Serviços",
+    
+    "contato":"Contato",
+    "termos-privacidade":"Termos e Privacidade"
+  },
+  "home":{
+  "release":"Conte com a expertise da Maia Corretora de Seguros, previdência privada e consórcios para tomar decisões seguras hoje e no futuro.",
+    "services":"Nossos Serviços",
+    "see-more":"Saiba Mais",
+    "tip":"Fale com um especialista"
+  },
+
+  "seguros":{
+
+    "title":"Seguro para você e para empresas",
+    "description":"Somos especialistas em proteger o que importa: o seu futuro. Oferecemos soluções ideais para todas as fases da vida — solteiros, casados, com filhos ou sem, autônomos, aposentados, pensionistas e muito mais."
+  },
+
+  "services":{
+  "title":"Serviços",
+
+  "consultoria-seguros": {
+    "title": "Consultoria Seguros Nacionais e Internacionais",
+    "description": "Proteção abrangente para você e sua família em qualquer lugar do mundo.",
+    "description-02": "Analisamos seu perfil, rotina e patrimônio para indicar as melhores coberturas do mercado, no Brasil e no exterior. Atuamos na comparação de seguradoras, leitura de cláusulas, redução de riscos e adequação de apólices, garantindo segurança real em viagens, moradia, saúde, vida e bens de alto valor."
+  },
+
+  "planejamento-financeiro": {
+    "title": "Planejamento Financeiro",
+    "description": "Estratégias personalizadas para alcançar seus objetivos financeiros.",
+    "description-02": "Organizamos sua vida financeira de forma estratégica, equilibrando proteção, crescimento e liquidez. Avaliamos renda, despesas, dívidas, investimentos e metas para montar um plano claro, que ajude você a construir patrimônio, manter estabilidade e tomar decisões seguras no curto, médio e longo prazo."
+  },
+
+  "blindagem-patrimonial": {
+    "title": "Blindagem Patrimonial",
+    "description": "Proteja seu patrimônio contra riscos e incertezas com soluções especializadas.",
+    "description-02": "Estruturamos soluções para proteger seus bens contra imprevistos jurídicos, financeiros e familiares. A blindagem patrimonial envolve estratégias legais e financeiras que reduzem a exposição a riscos, preservam ativos e garantem que seu patrimônio seja mantido e transferido com segurança ao longo das gerações."
+  },
+
+  "previdencia-privada": {
+    "title": "Previdência Privada",
+    "description": "Garanta seu futuro com planos de aposentadoria personalizados.",
+    "description-02": "Desenvolvemos planos de previdência complementar alinhados ao seu estilo de vida e objetivos futuros. Avaliamos perfil de risco, horizonte de tempo e benefícios fiscais para construir uma reserva sólida, que complemente a aposentadoria pública e proporcione tranquilidade financeira no futuro."
+  },
+
+  "consorcios": {
+    "title": "Consórcios",
+    "description": "Acesso facilitado a bens e serviços através de grupos organizados.",
+    "description-02": "Orientamos você na escolha de consórcios para aquisição planejada de imóveis, veículos ou serviços, sem juros, de forma organizada e estratégica. Analisamos prazos, valores de carta de crédito e possibilidades de contemplação para que a compra aconteça de forma inteligente e financeiramente equilibrada."
+  }
+},
+
+"nav": {
+  "consultoria": "Consultoria em Seguros",
+  "produtos": "Planejamento Financeiro",
+  "blindagem": "Blindagem Patrimonial",
+  "consorcio": "Consórcios",
+  "previdencia": "Previdência Privada",
+  "contato": "Contato"
+},
+
+
+
+
+
+  "solutions":{
+      "lines": {
+    "life": {
+      "title": "Linha Vida Toda",
+      "description": "Uma linha pensada para acompanhar o aumento da expectativa de vida, combinando proteção sólida com benefícios que geram valor ainda em vida.",
+      "b1": "Foco em acessibilidade, com valores mais competitivos em modalidades como Vida Inteira, Prazo Certo e Pensão por Morte.",
+      "b2": "Inclui o Benefício Antecipado por Doença Terminal (ADT), permitindo acesso ao capital ainda em vida em casos de diagnóstico terminal.",
+      "b3": "Garante dignidade e suporte financeiro no momento de maior necessidade da família.",
+      "b4": "Conta com sorteios pela Loteria Federal na modalidade Vida Inteira, oferecendo um benefício adicional imediato."
+    },
+
+    "private": {
+      "title": "Linha Private Solutions",
+      "description": "Uma linha premium voltada à proteção de grandes patrimônios e ao planejamento sucessório eficiente.",
+      "b1": "Produto Whole Life Sucessão focado na transferência de capital para herdeiros, ideal para quem não busca resgates em vida.",
+      "b2": "Acesso mais democrático à linha Private, com valor mínimo de entrada a partir de R$ 400.",
+      "b3": "Capital segurado de até R$ 50 milhões para cobrir inventário, impostos como ITCMD e manutenção do padrão de vida dos herdeiros.",
+      "b4": "Solução estratégica para proteção patrimonial e organização sucessória de alto nível."
+    }
+  },
+    "know":"Conheça Nossas Soluções",
+    "solutions-home-text-01":"Soluções completas e modernas em seguros, planejamento financeiro e proteção patrimonial, pensadas para cada fase da sua vida.",
+    "solutions-home-text-02":"Conheça nossas soluções para proteger toda a sua vida"
+  },
+
+
+  "bio":{
+    "title":"Maia Corretora de Seguros"
+    
+  },
+"see_more":"Veja Mais",
+  "watch_now":"Assista Agora",
+
+"form":{
+  "title": "contato",
+  "label-name": "nome",
+  "button": "enviar"
+  
+},
+
+"contato":{
+"nome":"Nome",
+"enviar":"Enviar"
+},
+
+
+  "form_fields": {
+    "name": {
+      "label": "Nome",
+      "placeholder": "Digite seu nome"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "Digite seu e-mail"
+    },
+    "message": {
+      "label": " Mensagem",
+      "placeholder": "Digite sua mensagem aqui..."
+    }
+  },
+  "form_consent": {
+  "checkbox_text_part1": "Eu concordo que Maia Corretora de Seguros use meus dados pessoais para me contatar. Entendo que posso cancelar a inscrição a qualquer momento. Por favor, leia nossa",
+  "privacy_policy_link": "Política de Privacidade",
+  "checkbox_text_part2": "para detalhes sobre o uso de dados.",
+  "required_message": "Você precisa aceitar os termos para enviar a mensagem."
+},
+"form_submit_button": "Enviar Mensagem",
+"form_sending_status": "Enviando...",
+"form_success_message": "Mensagem enviada com sucesso!",
+"form_error_message": "Falha ao enviar mensagem. Por favor, verifique sua entrada.",
+"login":{
+  
+  "email":"E-mail",
+  "password":"Senha",
+  "submit":"Entrar"
+}
+}

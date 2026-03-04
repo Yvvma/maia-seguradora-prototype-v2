@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+import AppWrapper from '../components/UI/AppWrapper'
+---
+
+<!doctype html>
+<html class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" sizes='16x16' href="/logo/logo-lt-corp.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title}</title>
+  
+  
+  </head>
+  <body>
+    
+	  <AppWrapper client:load>
+        <slot />
+		</AppWrapper>
+    
+     
+	
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding:0;
+    min-width: 100%;
+    min-height: 100%;
+    
+  }
+</style>

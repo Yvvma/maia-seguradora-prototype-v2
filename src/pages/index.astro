@@ -1,0 +1,38 @@
+---
+
+
+
+import Layout from '../layouts/Layout.astro';
+
+import BackgroundVideo from '../components/UI/bgVideo';
+
+import ReleaseContainer from '../components/Home/ReleaseContainer';
+import CardsContainer from '../components/Home/CardsContainer';
+import FaqContainer from '../components/Home/FaqContainer';
+import SolutionsHero from '../components/Home/SolutionsHero';
+
+---
+
+<Layout title="Maia Corretora de Seguros">
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+	<div class="relative w-full justify-center items-center bg-black">
+			
+
+			<BackgroundVideo desktopSrc='/videos/seguradora-01.mp4' mobileSrc="/videos/seguradora-01.mp4" client:load/>
+			
+		</div>
+
+		<div class="flex flex-col w-full sm:overflow-hidden">
+	
+		<ReleaseContainer client:load/>
+		<CardsContainer client:load/>
+		<SolutionsHero client:load/>
+		<FaqContainer client:load/>
+		
+		
+
+		</div>
+		
+	</div>
+</Layout>
