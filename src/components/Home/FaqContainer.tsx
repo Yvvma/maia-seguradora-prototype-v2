@@ -15,12 +15,7 @@ const FAQ_ITEMS: FaqItem[] = [
     answer:
       "Oferecemos consultoria em seguros nacionais e internacionais, incluindo seguros de vida, saúde, automóvel, residencial e empresarial. Nossa equipe avalia suas necessidades para indicar as melhores opções."
   },
-  {
-    id: "faq-2",
-    question: "Como funciona o planejamento financeiro com vocês?",
-    answer:
-      "O planejamento é totalmente personalizado, considerando objetivos, renda, despesas e perfil. Criamos estratégias claras para curto, médio e longo prazo."
-  },
+
   {
     id: "faq-3",
     question: "O que é blindagem patrimonial?",
@@ -98,7 +93,7 @@ const FaqContainer: React.FC = () => {
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 text-gray-600 leading-relaxed font-[MotoyaCedarW4] tracking-tight">
+                      <div className="px-6 pb-6 text-gray-600 leading-relaxed font-[NotoSansRegular] tracking-tight">
                         {item.answer}
                       </div>
                     </motion.div>

@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Missão e Valores | Maia Seguros">
+  <div class="w-full bg-white">
+
+    {/* Breadcrumb */}
+    <div class="flex flex-row bg-[#f5f5f5] px-2 py-4 font-[NotoSansLight] tracking-tight gap-2 text-sm md:px-8">
+      <span>Home</span>
+      <span>/</span>
+      <h1 class="font-[NotoSansRegular]">Missão e Valores</h1>
+    </div>
+
+    {/* Hero Section */}
+    <div class="relative w-full bg-black">
+
+      {/* Desktop / Tablet */}
+      <div class="relative z-10 max-w-6xl mx-auto flex flex-row items-center gap-6 p-4 md:p-12 hidden sm:flex justify-between ">
+        
+        {/* Texto */}
+        <div class="flex flex-col gap-4 md:w-1/2 text-white">
+          <h1 class="text-2xl md:text-5xl font-[NotoSansRegular] tracking-tightest">Missão</h1>
+          <h2 class="text-lg md:text-3xl font-[NotoSansBold] tracking-tight">Mais de 20 anos protegendo o que importa</h2>
+          <p class="text-sm md:text-base font-[NotoSansLight]">Experiência, confiança e excelência no atendimento</p>
+          <div class="bg-white text-center rounded-sm py-2 w-max mt-2">
+            <a href="#mais" class="text-[#0A1F7A] px-2 text-sm md:text-base font-[NotoSansRegular] tracking-tight hover:underline">
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+
+        {/* Imagem */}
+        <div class="md:w-1/2 w-full justify-end items-end flex">
+          <img src="/photos/luis-maia.jpeg" alt="Missão" class="w-full h-auto aspect-[3/4] max-w-80 object-cover rounded-xl  shadow-lg"/>
+        </div>
+
+      </div>
+
+      {/* Mobile */}
+      <div class="relative w-full h-full flex flex-col p-4 gap-2 bg-black sm:hidden">
+        <div class="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center text-white gap-2">
+          <h1 class="text-md md:text-5xl tracking-tightest font-[NotoSansRegular]">Missão</h1>
+          <img src="/photos/luis-maia.jpeg" alt="Missão" class="w-full h-full object-cover aspect-[3/4] max-w-sm rounded-xl" />
+          <h2 class="text-lg md:text-5xl tracking-tight font-[NotoSansBold]">Mais de 20 anos protegendo o que importa</h2>
+          <p class="text-sm tracking-tight font-[NotoSansLight]">Experiência, confiança e excelência no atendimento</p>
+          <div class="text-lg md:text-5xl tracking-tight font-[NotoSansBold] bg-white text-center rounded-sm py-1 max-w-max px-2 mt-2">
+            <a href="#mais" class="max-w-max inline-block px-2 py-1 bg-white text-[#0A1F7A] font-[NotoSansBold] rounded-sm text-center hover:bg-gray-100 transition">
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Content Section */}
+    <div id="mais" class="max-w-6xl mx-auto px-4 md:px-8 py-12">
+
+      {/* Quem Somos */}
+      <div class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-[MMC] text-[#0A1F7A] mb-4">Quem Somos</h2>
+        <p class="text-gray-700 font-[NotoSansLight] leading-relaxed mb-4">
+          Fundada por Luiz Claudio Maia, a Maia Corretora de Seguros traz mais de 20 anos de experiência no mercado de seguros, destacando-se pela expertise e compromisso com a proteção familiar, pessoal e empresarial.
+        </p>
+        <p class="text-gray-700 font-[NotoSansLight] leading-relaxed">
+          Trabalhamos com seguradoras de renome, assegurando que nossos clientes tenham acesso a opções de cobertura de alta qualidade e serviços personalizados.
+        </p>
+      </div>
+
+      {/* Diferenciais com imagens */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {[ 
+          { img: "/photos/seguros-page/01.jpg", title: "Proteção Integral", desc: "Ampla gama de produtos desde seguros de vida até seguros empresariais" },
+          { img: "/photos/seguros-page/02.webp", title: "Atendimento Personalizado", desc: "Atendimento ágil e personalizado, adaptado às necessidades de cada cliente" },
+          { img: "/photos/seguros-page/planejamento-financeiro.jpeg", title: "Parcerias Renomadas", desc: "Trabalhamos com seguradoras de renome garantindo qualidade e segurança" },
+          { img: "/photos/seguros-page/previdencia-complementar.jpg", title: "Compromisso com Excelência", desc: "Integridade, inovação e excelência em todos os nossos serviços" },
+        ].map((item) => (
+          <div class="relative overflow-hidden rounded-xl group">
+            <img src={item.img} alt={item.title} class="w-full h-64 md:h-72 object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-6">
+              <div>
+                <h3 class="text-xl font-[NotoSansBold] text-white mb-2">{item.title}</h3>
+                <p class="text-sm font-[NotoSansLight] text-white/90">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Missão, Visão, Valores */}
+      <div class="space-y-8 mb-12">
+        <div class="bg-[#0A1F7A] rounded-xl p-6 md:p-8 text-white">
+          <h2 class="text-2xl md:text-3xl font-[MMC] mb-4">Missão</h2>
+          <p class="font-[NotoSansLight] leading-relaxed">Prover soluções de seguros inovadoras e personalizadas, com o compromisso de proteger o patrimônio e o bem-estar de nossos clientes, estabelecendo uma relação de confiança e transparência, visando sempre a excelência no atendimento.</p>
+        </div>
+
+        <div class="bg-[#e84620] rounded-xl p-6 md:p-8 text-white">
+          <h2 class="text-2xl md:text-3xl font-[MMC] mb-4">Visão</h2>
+          <p class="font-[NotoSansLight] leading-relaxed">Ser reconhecida como a corretora de seguros referência no Brasil pela inovação, confiabilidade e excelência em serviços, contribuindo para a segurança e a tranquilidade de nossos clientes em todas as etapas da vida.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl md:text-3xl font-[MMC] text-[#0A1F7A] mb-6">Nossos Valores</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { title: "Integridade", desc: "Transparência, ética e respeito em todas as interações" },
+              { title: "Inovação", desc: "Soluções inovadoras e eficientes para nossos clientes" },
+              { title: "Excelência", desc: "Atendimento ágil, personalizado e de alta qualidade" },
+              { title: "Compromisso Social", desc: "Desenvolvimento sustentável e iniciativas sociais" },
+              { title: "Trabalho em Equipe", desc: "Ambiente colaborativo e valorização do time" },
+              { title: "Confiança", desc: "Relacionamentos duradouros e transparentes" },
+            ].map((val) => (
+              <div class="border border-gray-200 rounded-md p-6">
+                <h3 class="text-lg font-[NotoSansBold] text-[#0A1F7A] mb-2">{val.title}</h3>
+                <p class="text-gray-700 font-[NotoSansLight] text-sm">{val.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-[MMC] text-[#0A1F7A] mb-4">Faça parte da nossa história</h2>
+        <p class="font-[NotoSansLight] text-gray-700 mb-6">Entre em contato e descubra como podemos proteger o que é mais importante para você</p>
+        <a href="/contato" class="inline-block bg-[#0A1F7A] text-white px-8 py-3 rounded-full font-[NotoSansRegular] hover:bg-[#e84620] transition-colors">
+          Falar com Especialista
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

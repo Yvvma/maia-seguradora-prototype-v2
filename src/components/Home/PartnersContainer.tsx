@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import clsx from "clsx";
 
 const PARTNERS = [
   { name: "AIG", logo: "/logos-maia/AIG_new_logo.png" },
@@ -22,47 +23,63 @@ const PARTNERS = [
 
 const PartnersContainer: React.FC = () => {
   return (
-    <div className="w-full  py-12 bg-[#f5f5f5]">
+    <div className="w-full py-16 bg-[#e84620]">
       <div className="w-full max-w-6xl mx-auto px-6">
-        <h2 className="text-2xl  text-[#e84620] font-[NotoSansBold] text-start">
+
+        <h2 className="text-2xl text-white font-[NotoSansBold] text-start">
           Parceiros de negócio
         </h2>
 
-        <p className="mt-2 mb-8 max-w-2xl text-sm text-[#e84620] leading-relaxed font-[NotoSansLight] tracking-tight">
+        <p className="mt-2 mb-10 max-w-2xl text-sm text-white/90 leading-relaxed font-[NotoSansLight] tracking-tight">
           Trabalhamos ao lado de seguradoras e empresas consolidadas para oferecer
           soluções confiáveis, com solidez técnica e alinhamento às melhores
           práticas do mercado.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {PARTNERS.map((partner, index) => (
-            <motion.div
-              key={index}
-              className="border-2 border-white rounded-lg p-4 h-28 flex flex-col justify-between"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.04,
-                duration: 0.35,
-                ease: "easeOut"
-              }}
-            >
-              {/* Logo */}
-              <div className="h-10 flex items-start">
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-full max-w-[90px] object-contain"
-                />
-              </div>
+        {/* Mobile: flex-col | Desktop: grid */}
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-4 lg:grid-cols-5">
 
-              {/* Nome */}
-              <span className="text-xs font-[NotoSansRegular] text-gray-700 leading-tight">
-                {partner.name}
-              </span>
-            </motion.div>
-          ))}
+          {PARTNERS.map((partner, index) => {
+            const isBlack = index % 2 === 0;
+
+            return (
+              <motion.div
+                key={index}
+                className={clsx(
+                  "rounded-full px-6 py-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:scale-105",
+                  isBlack ? "bg-black" : "bg-white"
+                )}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.04,
+                  duration: 0.35,
+                  ease: "easeOut"
+                }}
+              >
+                {/* Logo */}
+                <div className="h-12 flex items-center justify-center mb-3">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-full max-w-[110px] object-contain"
+                  />
+                </div>
+
+                {/* Nome */}
+                <span
+                  className={clsx(
+                    "text-xs font-[NotoSansRegular]",
+                    isBlack ? "text-white" : "text-black"
+                  )}
+                >
+                  {partner.name}
+                </span>
+              </motion.div>
+            );
+          })}
+
         </div>
       </div>
     </div>

@@ -3,11 +3,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { t } from "i18next";
 
 const SELECTED_SOLUTIONS = [
-  {
-    id: "consultoria-personalizada",
-    title: "Consultoria Personalizada",
+ {
+    id: "previdencia-privada",
+    title: "Previdência Privada",
     description: "Análise completa das suas necessidades para encontrar as melhores soluções em seguros e investimentos.",
-    imgSrc: "/photos/home-selecionada/01.jpg",
+    imgSrc: "/photos/para-pessoas/previdencia.png",
   },
   {
     id: "blindagem-patrimonial",
@@ -19,7 +19,7 @@ const SELECTED_SOLUTIONS = [
     id: "investimentos-internacionais",
     title: "Investimentos Internacionais",
     description: "Acesso a produtos de investimento e previdência em dólar para diversificação global.",
-    imgSrc: "/photos/seguros/internacionais/seguro-internacional.png",
+      imgSrc: "/photos/home-selecionada/03.jpg",
   }
 ];
 
@@ -64,24 +64,24 @@ const SelectedSolutions: React.FC = () => {
         >
           {SELECTED_SOLUTIONS.map((solution, index) => (
             <motion.div
-              key={solution.id}
-              className={`snap-center flex-shrink-0 w-full bg-white rounded-xl p-6 shadow-sm transition-all duration-300 ${
-                activeIndex === index ? "border-2 border-[#0A1F7A]" : "border-2 border-gray-200"
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                ease: "easeOut"
-              }}
-            >
+  key={solution.id}
+  className={`snap-center flex-shrink-0 w-full md:w-[48%] bg-white rounded-xl p-6 shadow-sm transition-all duration-300 ${
+    activeIndex === index ? "border-2 border-[#0A1F7A]" : "border-2 border-gray-200"
+  }`}
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    delay: index * 0.1,
+    duration: 0.6,
+    ease: "easeOut"
+  }}
+>
               <div className="flex justify-end mb-4">
                 <img
                   src={solution.imgSrc}
                   alt={solution.title}
-                  className="w-full object-cover rounded-xl"
+                  className="w-full object-cover rounded-xl aspect-video"
                 />
               </div>
               
@@ -94,7 +94,7 @@ const SelectedSolutions: React.FC = () => {
               </p>
               
               <a
-                href={`/servicos/#${solution.id}`}
+                href={`/servicos/${solution.id}`}
                 className="text-[#0A1F7A] text-sm font-[MMC] font-medium hover:underline inline-flex items-center gap-1"
               >
                 Saiba mais →

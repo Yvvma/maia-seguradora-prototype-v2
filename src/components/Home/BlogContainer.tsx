@@ -7,7 +7,7 @@ const BLOG_ARTICLES = [
     id: "seguro-vida-importancia",
     title: "Por que o Seguro de Vida é Essencial para sua Família",
     description: "Entenda como o seguro de vida pode proteger o futuro financeiro dos seus entes queridos e garantir tranquilidade em momentos difíceis.",
-    imgSrc: "/photos/seguros/seguro-main/seguro-main.png",
+    imgSrc: "/photos/blog/familia.png",
     readTime: "5 min",
     date: "15 Mar 2024"
   },
@@ -15,7 +15,7 @@ const BLOG_ARTICLES = [
     id: "blindagem-patrimonial-guia",
     title: "Blindagem Patrimonial: Proteja seu Patrimônio de Forma Legal",
     description: "Descubra as principais estratégias de blindagem patrimonial e como proteger seus bens contra riscos jurídicos e financeiros.",
-    imgSrc: "/photos/seguros/blindagem/blindagem-patrimonial.png",
+    imgSrc: "/photos/blog/patrimonio.png",
     readTime: "7 min",
     date: "10 Mar 2024"
   }
@@ -37,7 +37,7 @@ const BlogContainer: React.FC = () => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-8">
           {BLOG_ARTICLES.map((article, index) => (
             <motion.a
               key={article.id}
@@ -52,7 +52,7 @@ const BlogContainer: React.FC = () => {
                 ease: "easeOut"
               }}
             >
-              <div className="aspect-video overflow-hidden rounded-xl">
+              <div className="aspect-video overflow-hidden rounded-xl ">
                 <img
                   src={article.imgSrc}
                   alt={article.title}
@@ -60,7 +60,7 @@ const BlogContainer: React.FC = () => {
                 />
               </div>
               
-              <div className="p-6">
+              <div className="py-4">
                 <h3 className="text-xl font-[MMC] font-bold tracking-tight text-gray-900 mb-2 group-hover:text-[#0A1F7A] transition-colors">
                   {article.title}
                 </h3>

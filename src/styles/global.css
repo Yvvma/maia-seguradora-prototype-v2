@@ -7,35 +7,37 @@
 
 @font-face {
     font-family: 'NotoSansLight';
-    src: url('/fonts/NotoSans-Light.ttf') format('truetype');
+    src: url('/fonts/rdl.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'NotoSansRegular';
-    src: url('/fonts/NotoSans-Regular.ttf') format('truetype');
+    src: url('/fonts/rdbo.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'NotoSansBold';
-    src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
+    src: url('/fonts/rdm.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'MMC';
+    src: url('/fonts/rdm.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'NotoSansBlack';
-    src: url('/fonts/NotoSans-Black.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MMC';
-    src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
+    src: url('/fonts/rdb.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

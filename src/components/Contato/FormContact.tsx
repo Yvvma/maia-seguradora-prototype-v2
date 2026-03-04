@@ -74,9 +74,9 @@ const ContactForm = () => {
   };
 
   return (
-    <section className=" w-full flex relative flex-col p-2 justify-center items-center bg-white">
+    <section className=" w-full flex relative flex-col  justify-center items-center bg-white">
 
-    <div className="bg-[black]/80 flex flex-col gap-2 relative px-4 rounded-xl border-[#e84620] border justify-center items-center">
+    <div className="bg-[#0A1F7A] flex flex-col gap-2 relative px-4 rounded-xl border-[#e84620]  justify-center items-center">
          <motion.div
                        initial={{ opacity: 0, y: 20 }}
                        whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ const ContactForm = () => {
                        transition={{ duration: 0.6 }}
                        className="text-center "
                      >
-                       <h2 className="text-xl font-[MMC] text-white py-4 tracking-tighter max-w-[256px]">
+                       <h2 className="text-xl font-[NotoSansBold] text-white py-4 tracking-tight max-w-[256px]">
                          {t('trabalhe.form')}
                        </h2>
                       
@@ -98,7 +98,7 @@ const ContactForm = () => {
       variants={fadeInUp}
     >
       {/* Name */}
-      <label className="flex flex-col gap-1 text-xs tracking-wide font-[MotoyaCedarW4] text-left">
+      <label className="flex flex-col gap-1 text-xs tracking-tight font-[NotoSansRegular] text-left">
         {t("contato.nome")}
         <input
           type="text"
@@ -111,7 +111,7 @@ const ContactForm = () => {
       </label>
 
       {/* Email */}
-      <label className="flex flex-col gap-1 text-xs tracking-wide font-[MotoyaCedarW4] text-left">
+      <label className="flex flex-col gap-1 text-xs tracking-wide font-[NotoSansRegular] text-left">
         E-mail
         <input
           type="email"
@@ -124,13 +124,13 @@ const ContactForm = () => {
       </label>
 
       {/* Consent */}
-      <label className="flex items-start justify-center gap-3 text-xs tracking-wide font-[MotoyaCedarW4] mt-2 cursor-pointer select-none text-center">
+      <label className="flex items-start justify-center gap-3 text-xs tracking-tight font-[NotoSansRegular] mt-2 cursor-pointer select-none text-center">
         <input
           type="checkbox"
           name="marketingConsent"
           checked={formData.marketingConsent}
           onChange={handleChange}
-          className="w-12 h-5 mt-0.5 appearance-none border-2 border-white bg-transparent checked:bg-white transition text-left"
+          className="w-18 h-5 mt-0.5 appearance-none border-2 border-white bg-transparent checked:bg-white transition text-left"
         />
         <span className='text-left'>
           {t("form_consent.checkbox_text_part1")}{" "}
@@ -153,7 +153,7 @@ const ContactForm = () => {
           whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
           disabled={isSubmitting}
           className={clsx(
-            "bg-white text-black px-6 py-2 rounded-sm text-xs uppercase font-[MotoyaCedarW8] transition",
+            "bg-[#e84620] text-black px-6 py-2 text-white rounded-sm text-xs uppercase font-[NotoSansBold] tracking-tight transition",
             isSubmitting && "opacity-60 cursor-not-allowed"
           )}
         >

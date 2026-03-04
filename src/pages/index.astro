@@ -1,18 +1,12 @@
 ---
 
-
-
 import Layout from '../layouts/Layout.astro';
-
 import BackgroundVideo from '../components/UI/bgVideo';
-
-import ReleaseContainer from '../components/Home/ReleaseContainer';
 import CardsContainer from '../components/Home/CardsContainer';
 import SelectedSolutions from '../components/Home/SelectedSolutions';
 import BlogContainer from '../components/Home/BlogContainer';
 import FaqContainer from '../components/Home/FaqContainer';
 import PartnersContainer from '../components/Home/PartnersContainer';
-import SolutionsHero from '../components/Home/SolutionsHero';
 
 ---
 
@@ -20,13 +14,10 @@ import SolutionsHero from '../components/Home/SolutionsHero';
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
 	<div class="relative w-full justify-center items-center bg-black">
-			
-
 			<BackgroundVideo desktopSrc='/videos/seguradora-01.mp4' mobileSrc="/videos/seguradora-01.mp4" client:load/>
-			
 		</div>
 
-		<div class="flex flex-col w-full sm:overflow-hidden">
+		<div class="flex flex-col w-full ">
 	
 		
 		<CardsContainer client:load/>
