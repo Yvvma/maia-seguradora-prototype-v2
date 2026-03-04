@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogList from "../components/blog/BlogList";
+import BlogHeader from "../components/blog/BlogHeader";
+import { getCollection } from "astro:content";
+
+
+
+const url = new URL(Astro.request.url);
+const queryLang = url.searchParams.get("lang");
+
+const lang = queryLang?.startsWith("en") ? "en" : "pt";
+const posts = await getCollection(`${lang}`);
+const search = Astro.url.searchParams.get("search")?.toLowerCase() || "";
+
+
+
+---
+
+<Layout title="Blog">
+
+  <div class="flex flex-col w-full py-16 px-8 h-full sm:h-[900px] justify-start mt-4 items-center">
+    <div class="flex justify-start items-start w-full ">
+      <BlogHeader client:load />
+      </div>
+      <div class="relative ">
+        <BlogList posts={posts} client:load />
+
+      </div>
+  </div>
+
+</Layout>

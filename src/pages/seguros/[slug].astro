@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllSeguros, getSeguroBySlug } from '../../data/seguros';
+import ContactForm from '../../components/Contato/FormContact';
+import CoverageCarousel from '../../components/Seguros/CoverageCarousel';
+
+export async function getStaticPaths() {
+  const seguros = getAllSeguros();
+  return seguros.map(seguro => ({
+    params: { slug: seguro.slug },
+    props: { seguro }
+  }));
+}
+
+const { seguro } = Astro.props;
+---
+
+<Layout title={`${seguro.title} | Maia Seguros`}>
+  <div class="w-full bg-white">
+  <div class="flex flex-row  bg-[#f5f5f5] px-2 py-4 font-[NotoSansLight] tracking-tight gap-2 text-sm">
+    <span>Home</span>
+    <span>/</span>
+    <h1 class="font-[NotoSansRegular]">{seguro.title}</h1>
+  
+
+  </div>
+    {/* Hero Section */}
+    <div class="relative w-full h-full flex flex-col p-4 gap-2 bg-black">
+      <div class="relative z-10 max-w-6xl h-full flex flex-col justify-center text-white gap-2">
+        <h1 class="text-md md:text-5xl tracking-tightest font-[NotoSansRegular]">{seguro.title}</h1>
+        <img src={seguro.heroImage} alt={seguro.title} class="w-full h-full object-cover aspect-video  rounded-xl" />
+        <h1 class="text-lg md:text-5xl tracking-tight font-[NotoSansBold]">{seguro.cta}</h1>
+        <p class="text-sm tracking-tight  font-[NotoSansLight]">{seguro.subtitle}</p>
+        <div class="text-lg md:text-5xl tracking-tight font-[NotoSansBold] bg-white text-center rounded-sm py-1 max-w-max px-2">
+          <a href="#contato" class=" text-[#0A1F7A] tracking-tight text-sm">
+          Faça sua cotação
+        </a>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Content Section */}
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        {/* Description */}
+        <div>
+          <h2 class="text-2xl font-[MMC] text-[#0A1F7A] mb-4">Sobre este Seguro</h2>
+          <p class="text-gray-700 font-[NotoSansLight] leading-relaxed mb-8">
+            {seguro.description}
+          </p>
+
+          {/* Benefits */}
+          <h3 class="text-xl font-[MMC] text-[#0A1F7A] mb-4">Benefícios</h3>
+          <ul class="space-y-3">
+            {seguro.benefits.map((benefit: string) => (
+              <li class="flex items-start gap-3">
+                <svg class="text-green-500 flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span class="text-gray-700 font-[NotoSansLight]">{benefit}</span>
+              </li>
+            ))}
+          </ul>
+          
+        </div>
+
+        {/* Coverage */}
+        <div>
+          <CoverageCarousel coverage={seguro.coverage} client:load />
+        </div>
+      </div>
+
+      <ContactForm client:load/>
+
+
+      </div>
+  </div>
+</Layout>

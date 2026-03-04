@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { CirclePlus } from "lucide-react";
 
 type BackgroundVideoProps = {
   desktopSrc: string;
@@ -15,8 +16,8 @@ export default function BackgroundVideo({
 }: BackgroundVideoProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const {t} = useTranslation();
-  // Detecta mobile
+  const { t } = useTranslation();
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = () => setIsMobile(mediaQuery.matches);
@@ -30,62 +31,67 @@ export default function BackgroundVideo({
     offset: ["start start", "end start"],
   });
 
-  // vídeo
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["0rem", "2rem"]);
-
-  // release animation
-  const releaseOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  const releaseX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, isMobile ? 0 : 120] // desktop sai para a direita
-  );
-
-  const releaseY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, isMobile ? 120 : 0] // mobile sai para baixo
-  );
+  // movimento extremamente sutil
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "24px"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.85]);
 
   return (
-    <div
+    <section
       ref={ref}
-      className="relative w-full flex justify-center items-center flex-row"
+      className="relative w-full h-[60vh] overflow-hidden bg-[#e84620] z-0"
     >
-      <div className="relative max-h-[580px] overflow-hidden flex justify-center w-full">
-        {/* VIDEO */}
-        <motion.video
-          key={isMobile ? "mobile" : "desktop"}
-          autoPlay
-          muted
-          loop
-          playsInline
-          src={isMobile ? mobileSrc : desktopSrc}
-          style={{scale, borderRadius }}
-          className="absolute inset-0 w-full h-full object-contain sm:object-cover z-0 origin-center"
-        />
+      {/* VIDEO DE FUNDO */}
+      <motion.video
+        key={isMobile ? "mobile" : "desktop"}
+        autoPlay
+        muted
+        loop
+        playsInline
+        src={isMobile ? mobileSrc : desktopSrc}
+        style={{ scale, borderRadius }}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-        {/* OVERLAY */}
-        <div className="relative w-full sm:h-[580px] h-[235px] flex z-1">
+      {/* OVERLAY GRADIENTE (igual Porto) */}
+      <motion.div
+        style={{ opacity: overlayOpacity }}
+        className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent "
+      />
+
+      {/* CONTEÚDO */}
+      <div className="relative z-10 h-full flex items-start  px-4 py-6 justify-start">
+        <div className="max-w-6xl w-full justify-start">
+          
           <motion.div
-            style={{
-              opacity: releaseOpacity,
-              x: releaseX,
-              y: releaseY,
-            }}
-            className='absolute bottom-2 text-white  justify-center items-center flex flex-col w-full '>                
-      
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-xl flex flex-col gap-4  justify-start"
+          >
+            <img className='flex relative max-w-[80px]' src='/logo/maia-logo-white.png'/>
+             <h1 className="text-3xl md:text-5xl font-[MMC] tracking-tight text-white leading-tight">
+              {t("home.title")}
+            </h1>
 
+            <p className="text-sm  text-white/80 font-[NotoSansLight] tracking-tight">
+              {t("home.release")}
+            </p>
+
+           
+          
+            <div className="">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 rounded-sm font-[NotoSansBold] tracking-tight bg-[#e84620] px-3 py-2 text-white text-sm hover:bg-white hover:text-black transition"
+              >
+                {t("home.see-more")}
+                <CirclePlus size={18} />
+              </a>
+            </div>
           </motion.div>
-
-        
         </div>
-
       </div>
-
-      
-    </div>
+    </section>
   );
 }

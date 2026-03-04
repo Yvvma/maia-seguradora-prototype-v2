@@ -6,36 +6,36 @@
 }
 
 @font-face {
-    font-family: 'MotoyaCedarW1';
+    font-family: 'NotoSansLight';
     src: url('/fonts/NotoSans-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'MotoyaCedarW4';
+    font-family: 'NotoSansRegular';
     src: url('/fonts/NotoSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'MotoyaCedarW6';
+    font-family: 'NotoSansBold';
     src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'MotoyaCedarW8';
-    src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
+    font-family: 'NotoSansBlack';
+    src: url('/fonts/NotoSans-Black.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MMC';
-    src: url('/fonts/MMC-regular.ttf') format('truetype');
+    src: url('/fonts/NotoSans-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

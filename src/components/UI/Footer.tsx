@@ -25,7 +25,7 @@ const FooterComponent = () => {
         
             <a
               href="/terms-and-privacy"
-              className="font-[MotoyaCedarW6] tracking-tight text-sm text-gray-100 underline underline-offset-2"
+              className="font-[NotoSansRegular]  tracking-tight text-sm text-gray-100 underline underline-offset-2"
             >
               {t("menu.termos-privacidade")}
             </a>
@@ -66,59 +66,15 @@ const FooterComponent = () => {
         {/* Créditos */}
         <div className="flex flex-col gap-2 items-center justify-between w-full px-8 py-2 border-t border-white/20">
           <a href="/" className="flex flex-row gap-1 items-center">
-          <img className='flex relative max-w-[40px]' src='/logo/maia-seguros-logo-white.png'/>
+          <img className='flex relative max-w-[80px] h-auto' src='/logo/maia-logo-white.png'/>
            
           </a>
-          <p className="font-[MotoyaCedarW1] text-xs tracking-tighter text-white">
+          <p className="font-[NotoSansRegular] text-xs tracking-tighter text-white">
             Produced by Industrie Brasil
           </p>
         </div>
       </footer>
 
-      {/* AnimatePresence Contact Modal */}
-      <AnimatePresence>
-        {isContactOpen && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              className="fixed inset-0 bg-black/50 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsContactOpen(false)}
-            />
-
-            {/* Modal Bottom Sheet */}
-            <motion.div
-              className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-black border border-white rounded-t-2xl shadow-lg z-50 p-6 max-h-[90vh] overflow-y-auto"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              {/* Handle */}
-              <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6" />
-
-              <div className="relative flex flex-col items-center text-center">
-                <button
-                  className="absolute top-4 right-4 text-gray-500 text-xl"
-                  onClick={() => setIsContactOpen(false)}
-                >
-                  ✕
-                </button>
-
-                {/* Título */}
-                <h2 className="text-2xl font-bold mb-6 text-white">{t("menu.contato")}</h2>
-
-                {/* Form */}
-                <div className="text-left w-full">
-                  <ContactForm />
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </>
   );
 };

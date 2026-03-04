@@ -8,7 +8,10 @@ import BackgroundVideo from '../components/UI/bgVideo';
 
 import ReleaseContainer from '../components/Home/ReleaseContainer';
 import CardsContainer from '../components/Home/CardsContainer';
+import SelectedSolutions from '../components/Home/SelectedSolutions';
+import BlogContainer from '../components/Home/BlogContainer';
 import FaqContainer from '../components/Home/FaqContainer';
+import PartnersContainer from '../components/Home/PartnersContainer';
 import SolutionsHero from '../components/Home/SolutionsHero';
 
 ---
@@ -25,10 +28,12 @@ import SolutionsHero from '../components/Home/SolutionsHero';
 
 		<div class="flex flex-col w-full sm:overflow-hidden">
 	
-		<ReleaseContainer client:load/>
+		
 		<CardsContainer client:load/>
-		<SolutionsHero client:load/>
+		<SelectedSolutions client:load/>
+		<BlogContainer client:load/>
 		<FaqContainer client:load/>
+		<PartnersContainer client:load/>
 		
 		
 

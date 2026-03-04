@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostPage from "../../components/blog/PostPage";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const pt = await getCollection("pt");
+  const en = await getCollection("en");
+
+  return [
+    ...pt.map(post => ({
+      params: { slug: post.slug },
+      props: { post, lang: "pt" }
+    })),
+    ...en.map(post => ({
+      params: { slug: post.slug },
+      props: { post, lang: "en" }
+    }))
+  ];
+}
+
+const { post, lang } = Astro.props;
+
+if (!post || !post.data) {
+  throw new Error(`Post não encontrado para slug: ${Astro.params.slug}`);
+}
+---
+
+<Layout title={post.data.title}>
+    <PostPage post={post} />
+</Layout>

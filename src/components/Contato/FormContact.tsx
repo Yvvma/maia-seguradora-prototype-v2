@@ -74,7 +74,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className=" w-full flex relative flex-col p-8 h-[800px] justify-center items-center bg-white">
+    <section className=" w-full flex relative flex-col p-2 justify-center items-center bg-white">
 
     <div className="bg-[black]/80 flex flex-col gap-2 relative px-4 rounded-xl border-[#e84620] border justify-center items-center">
          <motion.div

@@ -2,13 +2,28 @@ import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Youtube, Instagram, Menu, X } from "lucide-react";
+import { Youtube, Instagram, Menu, X, ArrowLeft } from "lucide-react";
 
 const MENU_ITEMS = [
-  { key: "home", path: "/" },
-  { key: "servicos", path: "/servicos" },
-  
+  { key: "servicos", path: "/servicos", hasSubmenu: true },
+  { key: "investimentos", path: "/investimentos" },
+  { key: "missao", path: "/missao" },
+  { key: "blog", path: "/blog" },
   { key: "contato", path: "/contato" },
+];
+
+const SERVICOS_PESSOAL = [
+  { title: "Seguro de Vida", slug: "seguro-vida" },
+  { title: "Seguro de Automóveis", slug: "seguro-automoveis" },
+  { title: "Seguro Viagem", slug: "seguro-viagem" },
+  { title: "Previdência Privada (VGBL e PGBL)", slug: "previdencia-privada" },
+  { title: "Consórcios Auto, Imóvel e Serviços", slug: "consorcios" },
+];
+
+const SERVICOS_EMPRESAS = [
+  { title: "Seguro Empresarial", slug: "seguro-empresarial" },
+  { title: "Seguro de Caminhões", slug: "seguro-caminhoes" },
+  { title: "Seguro de Cargas", slug: "seguro-cargas" },
 ];
 
 const LANGUAGES = [
@@ -80,6 +95,8 @@ const HeaderComponent = () => {
   const { t, i18n } = useTranslation();
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicosOpen, setServicosOpen] = useState(false);
+  const [servicosTab, setServicosTab] = useState<"pessoal" | "empresas">("pessoal");
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -98,6 +115,7 @@ const HeaderComponent = () => {
 
   const toggleMenu = () => {
     setIsLanguageMenuOpen(false);
+    setServicosOpen(false);
     setMenuOpen((prev) => !prev);
   };
 
@@ -135,17 +153,17 @@ const HeaderComponent = () => {
 
   return (
     <>
-      <motion.header className="w-full z-[99] relative bg-[#f5f5f5]">
+      <motion.header className="w-full z-[99] relative bg-white dropshadow-sm">
      
         
-        <nav className="w-full mx-auto px-4 sm:px-18  py-2 sm:py-4 bg-transparent">
+        <nav className="w-full mx-auto px-4 sm:px-18  py-4  bg-transparent ">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           
 
             {/* Desktop Layout */}
             <div className="hidden md:flex md:flex-row md:items-center md:justify-between w-full">
               <a href="/" className="text-left">
-                <img className='flex relative max-w-[40px]' src='/logo/maia-seguros-logo.png'/>
+                <img className='flex relative max-w-[40px]' src='/logo/maia-logo-color.png'/>
               </a>
 
               {/* Desktop Menu */}
@@ -173,7 +191,7 @@ const HeaderComponent = () => {
                           "uppercase tracking-tight transition text-[12px] sm:text-sm",
                           currentPath === item.path
                             ? "font-[MotoyaCedarW8]"
-                            : "font-[MotoyaCedarW4]"
+                            : ""
                         )}
                         variants={itemVariants}
                       >
@@ -197,7 +215,7 @@ const HeaderComponent = () => {
             <div className="flex md:hidden justify-between items-center w-full gap-2">
 
       <a href="/" className="text-left -translate-y-1">
-                  <img className='flex relative max-w-[32px]' src='/logo/maia-seguros-logo.png'/>
+                  <img className='flex relative max-w-[64px] h-auto' src='/logo/maia-logo-color.png'/>
                 </a>
               {/* Hamburger Menu - Left */}
               <button 
@@ -227,7 +245,7 @@ const HeaderComponent = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                 </motion.div>
-                <span className="font-[MotoyaCedarW1] text-xs tracking-tight text-black/60">{t('menu.title')}</span>
+                
               </button>
 
           
@@ -241,122 +259,201 @@ const HeaderComponent = () => {
         </nav>
       </motion.header>
 
-      {/* Mobile Menu */}
-    {/* Mobile Menu - Dropdown style like Capcom */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-[#f5f5f5] relative"
-          >
-           
+      {/* Mobile Menu - Sidebar */}
+     <AnimatePresence>
+  {menuOpen && (
+    <>
+      {/* Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-[100] md:hidden"
+        onClick={() => setMenuOpen(false)}
+      />
 
-            <div className="relative z-10">
-              {/* Menu Title Bar - Yellow/Green */}
-             
+      {/* Menu Principal */}
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="fixed left-0 top-0 bottom-0 w-full bg-white z-[101] md:hidden"
+      >
+        <div className="flex flex-col">
 
-              {/* Menu Items */}
-              <div className="flex flex-col bg-[#f5f5f5]">
-                {MENU_ITEMS.map((item, index) => (
-                  <a
-                    key={item.key}
-                    href={item.path}
-                    className={clsx(
-                      "px-4 py-2 border-b border-[#e84620]/100 flex items-center justify-between group hover:bg-[#e84620]/10 transition",
-                      currentPath === item.path && "bg-[#e84620]/20"
-                    )}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span className={clsx(
-                      "text-black text-base uppercase tracking-tight transition",
-                      currentPath === item.path
-                        ? "font-[MotoyaCedarW8]"
-                        : "font-[MotoyaCedarW4]"
-                    )}>
-                      {t(`menu.${item.key}`)}
-                    </span>
-                    <span className="text-black text-xl transform group-hover:translate-x-1 transition">›</span>
-                  </a>
-                ))}
-              </div>
+           {/* Tabs */}
+        <div className="flex flex-col  border-gray-200 font-[NotoSansBlack] border border-b-1  py-4 gap-4 px-4 bg-[#f5f5f5]">
 
-              {/* Language Section - White background like Capcom */}
-              <div className="bg-white  ">
-                <div className="bg-black h-1"/>
-              
-                <div className="flex gap-1  flex-wrap flex-col">
-                  {LANGUAGES.map((lang) => (
-                  <button
-                            key={lang.code}
-                            onClick={() => {
-                              handleLanguageChange(lang.code);
-                              setMenuOpen(false);
-                            }}
-                            disabled={isChanging}
-                            className={clsx(
-                              "uppercase font-[MotoyaCedarW1] tracking-tight px-4 py-2 transition text-sm text-left ",
-                              language === lang.code
-                                ? "bg-[#e84620]/80 "  // Green background with white text when selected
-                                : "border-[white]/30 bg-[#f5f5f5] text-[#0a1929] hover:border-[#e84620] hover:text-[#e84620]",  // Default state
-                              isChanging && "opacity-50 cursor-not-allowed"
-                            )}
-                          >
-                            {lang.fullName}
-                          </button>
-                  ))}
-                </div>
-                <div className="bg-black h-1"/>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <div className="flex flex-row gap-2 justify-start items-center">
 
-      {/* Language Modal */}
-      <AnimatePresence>
-        {isLanguageMenuOpen && (
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 bg-[#131313]/90 backdrop-blur-sm flex items-center justify-center z-60"
-            onClick={onLanguageMenuClick}
-          >
+      <button
+        onClick={() => setMenuOpen(false)}
+        >
+          <span className="text-[#0c3141] text-base font-[NotoSansBlack] flex items-center gap-2">
+            <ArrowLeft size={16} /> Menu
+          </span>
           
-            
-            <div className="flex flex-col gap-8 text-center">
-              <p className="text-white text-xs uppercase font-[MotoyaCedarW8] tracking-widest">
-                {t("language.select", "Selecionar idioma")}
-              </p>
+        </button>
+              <img src="/logo/favicon-maia.png" className="w-4 h-4"/>
+                </div>
+                  <div className="flex flex-row gap-2">
+                  <a
+                    href='/blog'
+                    className=
+                      "flex-1 px-4 py-2 justify-center items-center max-h-max text-sm tracking-tight bg-[#e84620]/70 text-[#f5f5f5] transition   max-w-max rounded-md font-[NotoSansBold]">
+                    
+                    Blog
+                  </a>
+                     <a
+                    href='/Contato'
+                    className=
+                      "flex-1 px-4 py-2 justify-center items-center max-h-max text-sm tracking-tight bg-[#e84620]/70 text-[#f5f5f5]  transition   max-w-max rounded-md font-[NotoSansBold]">
+                    
+                    Contato
+                  </a>
 
-              <div className="flex gap-4 justify-center flex-wrap">
-                {LANGUAGES.map((lang) => (
+    
+          </div>
+          
+        </div>
+
+          {/* SEGUROS (abre submenu) */}
+          <button
+            onClick={() => setServicosOpen(true)}
+            className="w-full px-4 py-4 border-b border-gray-200 flex items-center justify-between hover:bg-gray-100 transition font-[NotoSansBold]"
+          >
+            <span className="text-black  ">
+              Serviços
+            </span>
+            <span className="text-gray-400 ">›</span>
+          </button>
+
+    
+          <a
+            href="/investimentos"
+            className="px-4 py-4 border-b border-gray-200 flex items-center justify-between hover:bg-gray-100 transition font-[NotoSansBold]"
+            onClick={() => setMenuOpen(false)}
+          >
+            <span className="text-black  ">
+              Investimentos
+            </span>
+            <span className="text-gray-400 ">›</span>
+          </a>
+
+          {/* BANK */}
+          <a
+            href="/missao"
+            className="px-4 py-4 border-b border-gray-200 flex items-center justify-between hover:bg-gray-100 transition font-[NotoSansBold]"
+            onClick={() => setMenuOpen(false)}
+          >
+            <span className="text-black  ">
+              Missão
+            </span>
+            <span className="text-gray-400 ">›</span>
+          </a>
+
+        
+
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+
+{/* SUBMENU SEGUROS */}
+<AnimatePresence>
+  {servicosOpen && (
+    <>
+      {/* Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-[102] md:hidden "
+        onClick={() => setServicosOpen(false)}
+      />
+
+      {/* Submenu */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "-100%" }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="fixed left-0 top-0 bottom-0 w-full bg-white z-[104] md:hidden overflow-y-auto font-[NotoSansBold]"
+      >
+
+
+        {/* Tabs */}
+        <div className="flex flex-col  border-gray-200 font-[NotoSansBlack] border border-b-1  py-4 gap-4 px-4 bg-[#f5f5f5]">
+
+        <div className="flex flex-row gap-2 justify-start items-center">
+
+        <button
+        onClick={() => setServicosOpen(false)}
+        >
+          <span className="text-[#0c3141] text-base font-[NotoSansBlack] flex items-center gap-2">
+            <ArrowLeft size={16} /> Voltar
+          </span>
+          
+        </button>
+              <img src="/logo/favicon-maia.png" className="w-4 h-4"/>
+                </div>
+                  <div className="flex flex-row gap-2">
                   <button
-                    key={lang.code}
-                    onClick={() => handleLanguageChange(lang.code)}
-                    disabled={isChanging}
+                    onClick={() => setServicosTab("pessoal")}
                     className={clsx(
-                      "text-white uppercase font-[MotoyaCedarW4] border px-4 py-2 transition",
-                      language === lang.code
-                        ? "border-white"
-                        : "border-transparent hover:border-white",
-                      isChanging && "opacity-50 cursor-not-allowed"
+                      "flex-1 px-4 py-3 text-xs uppercase transition border  max-w-max rounded-full",
+                      servicosTab === "pessoal"
+                        ? "border-[#e84620] text-[#e84620] "
+                        : " border-[#c2c0c0] text-gray-500 hover:text-gray-700"
                     )}
                   >
-                    {lang.fullName}
+                    Para Você
                   </button>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+          <button
+            onClick={() => setServicosTab("empresas")}
+            className={clsx(
+               "flex-1 px-4 py-3 text-xs uppercase transition border max-w-max rounded-full",
+              servicosTab === "empresas"
+                ? "border-[#e84620] text-[#e84620]"
+                : "border-[#c2c0c0] text-gray-500 hover:text-gray-700"
+            )}
+          >
+            Para Empresas
+          </button>
+          </div>
+          
+        </div>
+
+        {/* Conteúdo */}
+        <div className="p-2 flex flex-col gap-2">
+          {(servicosTab === "pessoal"
+            ? SERVICOS_PESSOAL
+            : SERVICOS_EMPRESAS
+          ).map((servico, idx) => (
+            <a
+              key={idx}
+              href={`/seguros/${servico.slug}`}
+              className="px-3 py-3 text-sm text-gray-700 hover:bg-gray-100 rounded transition"
+              onClick={() => {
+                setServicosOpen(false);
+                setMenuOpen(false);
+              }}
+            >
+              {servico.title}
+            </a>
+          ))}
+        </div>
+
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
+
     </>
   );
 };
