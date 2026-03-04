@@ -36,7 +36,7 @@ const FaqContainer: React.FC = () => {
     <div className="w-full bg-white py-16">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl text-center mb-12 font-[MMC] text-gray-800">
-          Perguntas Frequentes sobre Nossos Serviços
+          Perguntas Frequentes 
         </h2>
 
         <div className="space-y-4">
