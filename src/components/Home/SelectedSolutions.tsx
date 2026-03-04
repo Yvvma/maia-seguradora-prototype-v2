@@ -15,12 +15,7 @@ const SELECTED_SOLUTIONS = [
     description: "Estratégias avançadas para proteger seu patrimônio contra riscos jurídicos e financeiros.",
     imgSrc: "/photos/home-selecionada/02.jpg",
   },
-  {
-    id: "investimentos-internacionais",
-    title: "Investimentos Internacionais",
-    description: "Acesso a produtos de investimento e previdência em dólar para diversificação global.",
-      imgSrc: "/photos/home-selecionada/03.jpg",
-  }
+
 ];
 
 const SelectedSolutions: React.FC = () => {

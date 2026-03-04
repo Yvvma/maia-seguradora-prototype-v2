@@ -10,29 +10,22 @@ interface FaqItem {
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    id: "faq-1",
-    question: "Quais tipos de seguros vocês oferecem?",
+    id: "previdencia-privada",
+    question: "O que é Previdência Privada?",
     answer:
-      "Oferecemos consultoria em seguros nacionais e internacionais, incluindo seguros de vida, saúde, automóvel, residencial e empresarial. Nossa equipe avalia suas necessidades para indicar as melhores opções."
-  },
-
-  {
-    id: "faq-3",
-    question: "O que é blindagem patrimonial?",
-    answer:
-      "São estratégias jurídicas e financeiras para proteger seus bens contra riscos como dívidas, credores, separações e imprevistos, sempre dentro da legalidade."
+      "A Previdência Privada é uma solução de planejamento financeiro que complementa o INSS, auxilia no planejamento sucessório, oferece benefícios fiscais e garante maior segurança e liberdade financeira para o futuro."
   },
   {
-    id: "faq-4",
-    question: "Quais são as vantagens da previdência privada?",
+    id: "blindagem-patrimonial",
+    question: "O que é Blindagem Patrimonial?",
     answer:
-      "Complementa o INSS, auxilia no planejamento sucessório, pode gerar benefícios fiscais e garante mais liberdade financeira no futuro."
+      "Blindagem Patrimonial envolve estratégias jurídicas e financeiras para proteger seu patrimônio contra riscos como dívidas, processos judiciais, separações e imprevistos, sempre de forma legal e estruturada."
   },
   {
-    id: "faq-5",
-    question: "Como funcionam os consórcios?",
+    id: "investimentos-internacionais",
+    question: "Como funcionam os Investimentos Internacionais?",
     answer:
-      "Grupos organizados para aquisição de bens ou serviços, com contribuições mensais e contemplação via sorteio ou lance, sem juros."
+      "Investimentos Internacionais permitem diversificar seus recursos em produtos financeiros no exterior, incluindo ações, fundos e previdência em dólar, ampliando oportunidades de crescimento e proteção contra variações do mercado local."
   }
 ];
 
@@ -43,7 +36,7 @@ const FaqContainer: React.FC = () => {
     <div className="w-full bg-white py-16">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl text-center mb-12 font-[MMC] text-gray-800">
-          Perguntas Frequentes
+          Perguntas Frequentes sobre Nossos Serviços
         </h2>
 
         <div className="space-y-4">

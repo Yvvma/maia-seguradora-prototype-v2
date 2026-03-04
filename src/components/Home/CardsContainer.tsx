@@ -14,15 +14,15 @@ interface ServiceCard {
 
 const SERVICE_CARDS: ServiceCard[] = [
   { id: "seguro-vida", title: "Seguro de Vida", description: "Proteção financeira para você e sua família em todas as fases da vida.", imgSrc: "/photos/seguros/seguro-main/seguro-main.png", icon: <HeartHandshake size={24} />, bgColor: "bg-blue-400" },
-  { id: "seguro-patrimonial", title: "Seguros Patrimoniais", description: "Proteção para automóveis, residências, condomínios e bens pessoais.", imgSrc: "/photos/seguros/blindagem/blindagem-patrimonial.png", icon: <Home size={24} />, bgColor: "bg-green-400" },
+  
   { id: "seguro-viagem", title: "Seguro Viagem", description: "Assistência completa para viagens nacionais e internacionais.", imgSrc: "/photos/seguros/internacionais/seguro-internacional.png", icon: <Plane size={24} />, bgColor: "bg-sky-400" },
   { id: "previdencia-planejamento", title: "Previdência e Planejamento", description: "Planejamento financeiro e previdenciário em reais ou dólar.", imgSrc: "/photos/seguros/previdencia/previdencia-complementar.png", icon: <Landmark size={24} />, bgColor: "bg-yellow-400" },
-  { id: "seguro-automovel", title: "Seguro Automóvel", description: "Proteção completa para seu veículo, com coberturas sob medida e assistência confiável.", imgSrc: "/photos/seguros/consorcio/consorcio.png", icon: <Car size={24} />, bgColor: "bg-red-400" }
+  
 ];
 
 const BUSINESS_SOLUTIONS = [
   { id: "seguro-empresarial", title: "Seguro Empresarial", description: "Proteção completa para seu negócio com coberturas personalizadas.", imgSrc: "/photos/para-empresas/03.png", icon: <Building2 size={24} />, bgColor: "bg-slate-600" },
-  { id: "seguro-frotas", title: "Seguro de Frotas", description: "Segurança para caminhões e veículos comerciais da sua empresa.", imgSrc: "/photos/para-empresas/01.jpg", icon: <Truck size={24} />, bgColor: "bg-gray-600" },
+  { id: "seguro-de-caminhoes", title: "Seguro de Caminhões", description: "Segurança para caminhões e veículos comerciais da sua empresa.", imgSrc: "/photos/para-empresas/01.jpg", icon: <Truck size={24} />, bgColor: "bg-gray-600" },
   { id: "seguro-cargas", title: "Seguro de Cargas", description: "Proteção para suas mercadorias em trânsito nacional e internacional.", imgSrc: "/photos/para-empresas/02.jpg", icon: <Shield size={24} />, bgColor: "bg-zinc-600" }
 ];
 
@@ -113,7 +113,7 @@ const CardsContainer: React.FC = () => {
                 <div className="relative z-10 p-6 sm:p-8 text-white">
                   <h3 className="text-xl font-[MMC] font-bold tracking-tight mb-3">{solution.title}</h3>
                   <p className="text-sm tracking-tight font-[NotoSansLight] mb-5 max-w-md text-white/90">{solution.description}</p>
-                  <a href={`/servicos/#${solution.id}`} className="inline-flex items-center border border-white px-5 py-2 rounded-full text-sm font-[MMC] transition-all duration-300 hover:bg-white hover:text-[#0A1F7A]">
+                  <a href={`/servicos/${solution.id}`} className="inline-flex items-center border border-white px-5 py-2 rounded-full text-sm font-[MMC] transition-all duration-300 hover:bg-white hover:text-[#0A1F7A]">
                     {t("home.see-more")}
                   </a>
                 </div>
